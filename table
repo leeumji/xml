@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+내가 읽은 책<br><br>
+<table border='2' id="bookname">
+
+<tr>
+	<th>제목</th><th>저자</th><th>가격</th>
+</tr>
+</table>
+
+<script type="text/javascript">
+
+let xhttp = new XMLHttpRequest();
+
+xhttp.onreadystatechange = function() {
+	
+	if(this.readyState == 4 && this.status == 200) {
+		alert(this.responseXML);
+		nodeValfunc( this );
+	}
+}
+xhttp.open('GET', 'book2.xml', true);
+xhttp.send();
+
+function nodeValfunc( xml ) {
+	let title, author, price;
+	let txt, numtxt, xmlDoc, choH;
+	
+	txt = numtxt = '';
+	
+	xmlDoc = xml.responseXML;
+	
+	title = xmlDoc.getElementsByTagName('title');
+	author = xmlDoc.getElementsByTagName('author');
+	price = xmlDoc.getElementsByTagName('price');
+	
+	   let arrTitle = new Array();
+	   let arrAuthor = new Array();
+	   let arrPrice = new Array(); 
+	   
+	for (i = 0; i < title.length; i++) {
+		arrTitle[i] = title[i].childNodes[0].nodeValue;
+		arrAuthor[i] = author[i].childNodes[0].nodeValue;
+		arrPrice[i] = price[i].childNodes[0].nodeValue;
+	}   
+	
+	let table = document.getElementById('bookname');
+
+	   for(i=0; i< arrTitle.length; i++){
+	      let tr = document.createElement("tr");
+	      
+	      let td1 = document.createElement("td");           
+	      td1.appendChild(document.createTextNode(arrTitle[i] + ""));
+	      
+	      let td2 = document.createElement("td");          
+	      td2.appendChild(document.createTextNode(arrAuthor[i] + ""));
+	      
+	      let td3 = document.createElement("td");          
+	      td3.appendChild(document.createTextNode(arrPrice[i]+ ""));
+	      
+	      tr.appendChild(td1);
+	      tr.appendChild(td2);
+	      tr.appendChild(td3);
+	      
+	      table.appendChild(tr);
+	   }
+	}
+	
+</script>
+
+</body>
+</html>
