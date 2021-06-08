@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list>
+	<book>
+		<title>언어의 온도</title>
+		<author>이기주</author>
+		<price>13,000</price>
+	</book>
+	<book>
+		<title>방황하는 칼날</title>
+		<author>히가시노 게이고</author>
+		<price>22,950</price>
+	</book>
+	<book>
+		<title>몽실언니</title>
+		<author>권정생</author>
+		<price>11,000</price>
+	</book>
+	<book>
+		<title>하악하악</title>
+		<author>이외수</author>
+		<price>13,050</price>
+	</book>
+	<book>
+		<title>자존감 수업</title>
+		<author>윤홍균</author>
+		<price>14,000</price>
+	</book>
+</list>
